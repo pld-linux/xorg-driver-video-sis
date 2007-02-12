@@ -1,5 +1,5 @@
 Summary:	X.org video driver for SiS and XGI video chips
-Summary(pl.UTF-8):   Sterownik obrazu X.org dla układów graficznych SiS i XGI
+Summary(pl.UTF-8):	Sterownik obrazu X.org dla układów graficznych SiS i XGI
 Name:		xorg-driver-video-sis
 Version:	0.9.3
 Release:	0.1

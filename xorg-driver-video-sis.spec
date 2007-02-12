@@ -1,5 +1,5 @@
 Summary:	X.org video driver for SiS and XGI video chips
-Summary(pl):	Sterownik obrazu X.org dla uk³adów graficznych SiS i XGI
+Summary(pl.UTF-8):   Sterownik obrazu X.org dla ukÅ‚adÃ³w graficznych SiS i XGI
 Name:		xorg-driver-video-sis
 Version:	0.9.3
 Release:	0.1
@@ -36,13 +36,13 @@ SiS630/730 (called 300 series), SiS315/E/H/PRO, SiS550/551/552,
 SiS650/651/661/741, SiS330 (Xabre), SiS760/761, XGI Volari V3/V5/V8,
 XGI Volari Z7 (called 315/330/340 series).
 
-%description -l pl
-Sterownik obrazu X.org dla uk³adów graficznych SiS i XGI. Obs³uguje
-karty PCI, AGP i PCIe oparte na nastêpuj±cych uk³adach: SiS5597/5598,
-SiS530/620, SiS6326/AGP/DVD (zwanych star± seri±), SiS300/305, SiS540,
-SiS630/730 (zwanych seri± 300), SiS315/E/H/PRO, SiS550/551/552,
+%description -l pl.UTF-8
+Sterownik obrazu X.org dla ukÅ‚adÃ³w graficznych SiS i XGI. ObsÅ‚uguje
+karty PCI, AGP i PCIe oparte na nastÄ™pujÄ…cych ukÅ‚adach: SiS5597/5598,
+SiS530/620, SiS6326/AGP/DVD (zwanych starÄ… seriÄ…), SiS300/305, SiS540,
+SiS630/730 (zwanych seriÄ… 300), SiS315/E/H/PRO, SiS550/551/552,
 SiS650/651/661/741, SiS330 (Xabre), SiS760/761, XGI Volari V3/V5/V8,
-XGI Volari Z7 (zwanych seri± 315/330/340).
+XGI Volari Z7 (zwanych seriÄ… 315/330/340).
 
 %prep
 %setup -q -n xf86-video-sis-%{version}

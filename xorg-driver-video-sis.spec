@@ -29,6 +29,7 @@ Requires:	xorg-xserver-server >= 1.0.99.901
 Obsoletes:	X11-driver-sis < 1:7.0.0
 Obsoletes:	XFree86-SiS
 Obsoletes:	XFree86-driver-sis < 1:7.0.0
+Obsoletes:	XFree86-driver-xgi < 1:7.0.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description

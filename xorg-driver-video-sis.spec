@@ -2,7 +2,7 @@ Summary:	X.org video driver for SiS and XGI video chips
 Summary(pl.UTF-8):	Sterownik obrazu X.org dla układów graficznych SiS i XGI
 Name:		xorg-driver-video-sis
 Version:	0.10.0
-Release:	3
+Release:	4
 License:	MIT
 Group:		X11/Applications
 Source0:	http://xorg.freedesktop.org/releases/individual/driver/xf86-video-sis-%{version}.tar.bz2
@@ -52,6 +52,9 @@ XGI Volari Z7 (zwanych serią 315/330/340).
 
 %prep
 %setup -q -n xf86-video-sis-%{version}
+
+# https://bugs.freedesktop.org/show_bug.cgi?id=18304
+sed -i -e 's|#define.*SIS_USE_BIOS_SCRATCH.*|#undef SIS_USE_BIOS_SCRATCH|g' src/sis.h
 
 %build
 %{__libtoolize}

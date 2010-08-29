@@ -11,22 +11,24 @@ URL:		http://xorg.freedesktop.org/
 BuildRequires:	Mesa-libGL-devel
 BuildRequires:	autoconf >= 2.57
 BuildRequires:	automake
+BuildRequires:	cpp
 BuildRequires:	libdrm-devel >= 2.0
 BuildRequires:	libtool
 BuildRequires:	pkgconfig >= 1:0.19
+BuildRequires:	rpmbuild(macros) >= 1.389
+BuildRequires:	xorg-lib-libpciaccess-devel >= 0.10
 BuildRequires:	xorg-proto-fontsproto-devel
 BuildRequires:	xorg-proto-randrproto-devel
 BuildRequires:	xorg-proto-renderproto-devel
 BuildRequires:	xorg-proto-videoproto-devel
-BuildRequires:	xorg-proto-xextproto-devel
+BuildRequires:	xorg-proto-xextproto-devel >= 7.0.99.1
 BuildRequires:	xorg-proto-xf86dgaproto-devel
 BuildRequires:	xorg-proto-xf86driproto-devel
-BuildRequires:	xorg-proto-xf86miscproto-devel
 BuildRequires:	xorg-proto-xineramaproto-devel
-BuildRequires:	xorg-util-util-macros >= 0.99.2
+BuildRequires:	xorg-util-util-macros >= 1.3
 BuildRequires:	xorg-xserver-server-devel >= 1.0.99.901
-BuildRequires:  rpmbuild(macros) >= 1.389
-%requires_xorg_xserver_videodrv
+%{?requires_xorg_xserver_videodrv}
+Requires:	xorg-lib-libpciaccess >= 0.10
 Requires:	xorg-xserver-libdri >= 1.0.99.901
 Requires:	xorg-xserver-libglx >= 1.0.99.901
 Requires:	xorg-xserver-server >= 1.0.99.901
@@ -64,8 +66,7 @@ sed -i -e 's|#define.*SIS_USE_BIOS_SCRATCH.*|#undef SIS_USE_BIOS_SCRATCH|g' src/
 %{__autoconf}
 %{__autoheader}
 %{__automake}
-%configure \
-	--disable-static
+%configure
 
 %{__make}
 

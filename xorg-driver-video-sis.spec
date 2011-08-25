@@ -2,7 +2,7 @@ Summary:	X.org video driver for SiS and XGI video chips
 Summary(pl.UTF-8):	Sterownik obrazu X.org dla układów graficznych SiS i XGI
 Name:		xorg-driver-video-sis
 Version:	0.10.3
-Release:	3
+Release:	4
 License:	MIT
 Group:		X11/Applications
 Source0:	http://xorg.freedesktop.org/releases/individual/driver/xf86-video-sis-%{version}.tar.bz2
@@ -32,6 +32,7 @@ Requires:	xorg-lib-libpciaccess >= 0.10
 Requires:	xorg-xserver-libdri >= 1.0.99.901
 Requires:	xorg-xserver-libglx >= 1.0.99.901
 Requires:	xorg-xserver-server >= 1.0.99.901
+Provides:	xorg-driver-video
 Obsoletes:	X11-driver-sis < 1:7.0.0
 Obsoletes:	XFree86-SiS
 Obsoletes:	XFree86-driver-sis < 1:7.0.0

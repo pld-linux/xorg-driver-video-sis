@@ -1,0 +1,51 @@
+--- xf86-video-sis-0.10.8/src/sis_memcpy.c.orig	2015-08-30 01:34:25.000000000 +0200
++++ xf86-video-sis-0.10.8/src/sis_memcpy.c	2015-09-06 12:40:43.927962132 +0200
+@@ -392,7 +392,8 @@
+ #undef SiS_haveProc
+ #undef SiS_haveBuiltInMC
+ 
+-#if defined(__i386__) /* ***************************************** i386 */
++#define IS_X86_64 (defined(__AMD64__) || defined(__amd64__) || defined(__x86_64__))
++#if defined(__i386__) || (IS_X86_64 && defined(_ILP32)) /* ***************************************** i386 or x32 */
+ 
+ #define SiS_checkosforsse 	/* Does this cpu support sse and do we need to check os? */
+ #define SiS_canBenchmark	/* Can we perform a benchmark? */
+@@ -475,10 +476,17 @@
+     unsigned int eax;
+ 
+     __asm__ volatile (
++#if IS_X86_64
++		" pushq %%rbx\n"
++		" cpuid\n"
++		" rdtsc\n"
++		" popq %%rbx\n"
++#else
+ 		" pushl %%ebx\n"
+ 		" cpuid\n"
+ 		" rdtsc\n"
+ 		" popl %%ebx\n"
++#endif
+ 		: "=a" (eax)
+ 		: "0" (0)
+ 		: "ecx", "edx", "cc");
+@@ -486,7 +494,7 @@
+     return(eax);
+ }
+ 
+-#elif defined(__AMD64__) || defined(__amd64__) || defined(__x86_64__) /***************** AMD64 */
++#elif IS_X86_64 /***************** AMD64 */
+ 
+ #define SiS_checkosforsse	/* Does this cpu support sse and do we need to check os? */
+ #define SiS_canBenchmark	/* Can we perform a benchmark? */
+@@ -1016,7 +1024,11 @@
+ 
+ #elif defined(__AMD64__) || defined(__amd64__) || defined(__x86_64__) /* AMD64 specific ***** */
+ 
++#  if defined(_ILP32)
++PREFETCH_FUNC(SiS_sse,SSE,SSE,,FENCE,small_memcpy_i386)
++#  else
+ PREFETCH_FUNC(SiS_sse,SSE64,SSE,,FENCE,small_memcpy_amd64)
++#  endif
+ 
+ static SISMCFuncData MCFunctions_AMD64[] = {
+     {SiS_libc_memcpy,   "libc",      SIS_CPUFL_LIBC, 2,  2, FALSE},

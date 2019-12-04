@@ -1,12 +1,12 @@
 Summary:	X.org video driver for SiS and XGI video chips
 Summary(pl.UTF-8):	Sterownik obrazu X.org dla układów graficznych SiS i XGI
 Name:		xorg-driver-video-sis
-Version:	0.11.0
+Version:	0.12.0
 Release:	1
 License:	MIT
 Group:		X11/Applications
 Source0:	https://xorg.freedesktop.org/releases/individual/driver/xf86-video-sis-%{version}.tar.bz2
-# Source0-md5:	b4ad0e572bffa609f75df787ea7b3d11
+# Source0-md5:	b8ec9c21758043b1480f11baec296f5d
 Patch0:		%{name}-x32.patch
 URL:		https://xorg.freedesktop.org/
 BuildRequires:	Mesa-libGL-devel

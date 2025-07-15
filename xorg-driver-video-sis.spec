@@ -60,7 +60,7 @@ XGI Volari Z7 (zwanych serią 315/330/340).
 
 %prep
 %setup -q -n xf86-video-sis-%{version}
-%patch0 -p1
+%patch -P0 -p1
 
 # https://bugs.freedesktop.org/show_bug.cgi?id=18304
 # (not used anyway when xserver uses libpciaccess)
